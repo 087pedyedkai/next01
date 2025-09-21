@@ -3,7 +3,6 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import usePortfolioStore from '@/store/portfolio';
-import { Portfolio } from '@/types/portfolio';
 
 type SortField = 'firstName' | 'lastName' | 'gpa' | 'university' | 'createdAt';
 type SortDirection = 'asc' | 'desc';
@@ -24,7 +23,7 @@ export default function AdminPage() {
   };
 
   const filteredAndSortedPortfolios = useMemo(() => {
-    let filtered = portfolios.filter((portfolio) => {
+    const filtered = portfolios.filter((portfolio) => {
       const searchLower = searchTerm.toLowerCase();
       return (
         portfolio.firstName.toLowerCase().includes(searchLower) ||
@@ -35,8 +34,8 @@ export default function AdminPage() {
     });
 
     return filtered.sort((a, b) => {
-      let aValue: any = a[sortField];
-      let bValue: any = b[sortField];
+      let aValue: string | number | Date = a[sortField];
+      let bValue: string | number | Date = b[sortField];
 
       if (sortField === 'createdAt') {
         aValue = new Date(aValue);
@@ -45,7 +44,7 @@ export default function AdminPage() {
 
       if (typeof aValue === 'string') {
         aValue = aValue.toLowerCase();
-        bValue = bValue.toLowerCase();
+        bValue = (bValue as string).toLowerCase();
       }
 
       if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1;

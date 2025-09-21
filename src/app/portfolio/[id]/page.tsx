@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import Image from 'next/image';
 import usePortfolioStore from '@/store/portfolio';
-import { Portfolio } from '@/types/portfolio';
 
 export default function PortfolioDetailPage() {
   const params = useParams();
@@ -189,9 +189,11 @@ export default function PortfolioDetailPage() {
                   <div className="mb-6">
                     <h3 className="text-md font-medium text-gray-800 mb-2">รูปภาพโปรไฟล์</h3>
                     <div className="flex justify-center">
-                      <img
+                      <Image
                         src={portfolio.profileImage}
                         alt="Profile"
+                        width={128}
+                        height={128}
                         className="w-32 h-32 rounded-full object-cover border-4 border-blue-200"
                       />
                     </div>
@@ -207,9 +209,11 @@ export default function PortfolioDetailPage() {
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                       {portfolio.activityImages.map((image, index) => (
                         <div key={index} className="aspect-square">
-                          <img
+                          <Image
                             src={image}
                             alt={`Activity ${index + 1}`}
+                            width={200}
+                            height={200}
                             className="w-full h-full object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer"
                             onClick={() => window.open(image, '_blank')}
                           />
@@ -228,9 +232,11 @@ export default function PortfolioDetailPage() {
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                       {portfolio.awardImages.map((image, index) => (
                         <div key={index} className="aspect-square">
-                          <img
+                          <Image
                             src={image}
                             alt={`Award ${index + 1}`}
+                            width={200}
+                            height={200}
                             className="w-full h-full object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer"
                             onClick={() => window.open(image, '_blank')}
                           />
@@ -282,9 +288,11 @@ export default function PortfolioDetailPage() {
               <div className="bg-white rounded-lg shadow-sm p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">โปรไฟล์</h3>
                 <div className="flex flex-col items-center">
-                  <img
+                  <Image
                     src={portfolio.profileImage}
                     alt="Profile"
+                    width={96}
+                    height={96}
                     className="w-24 h-24 rounded-full object-cover border-4 border-blue-200 mb-3"
                   />
                   <h4 className="text-lg font-semibold text-gray-900">
