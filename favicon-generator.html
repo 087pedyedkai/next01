@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #3B82F6, #6366F1);
+      font-family: Arial, sans-serif;
+    }
+    .icon {
+      width: 64px;
+      height: 64px;
+      background: white;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .book {
+      width: 32px;
+      height: 40px;
+      background: linear-gradient(135deg, #3B82F6, #6366F1);
+      border-radius: 4px;
+      position: relative;
+    }
+    .book::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 6px;
+      right: 6px;
+      height: 2px;
+      background: white;
+      border-radius: 1px;
+    }
+    .book::after {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: 6px;
+      right: 6px;
+      height: 2px;
+      background: white;
+      border-radius: 1px;
+    }
+    .cap {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 16px;
+      height: 16px;
+      background: #FFD700;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+<body>
+  <div class="icon">
+    <div class="book">
+      <div class="cap"></div>
+    </div>
+  </div>
+</body>
+</html>
